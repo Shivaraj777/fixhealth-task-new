@@ -52,7 +52,7 @@ function Navbar() {
 }
 
 // styled component
-const StyledNavbar = styled.section`
+const StyledNavbar = styled.nav`
   .navbar-list{
     gap: 2rem;
     display: flex;
@@ -134,7 +134,7 @@ const StyledNavbar = styled.section`
     .navbar-list{
       width: 100vw;
       position: absolute;
-      top: 100px;
+      top: 82px;
       right: 0;
       display: flex;
       justify-content: center;

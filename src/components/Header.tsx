@@ -30,7 +30,7 @@ const AppHeader = styled.header`
 
   .header{
     display: flex;
-    justify-content: apace-between;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 0 1.5rem;
