@@ -66,6 +66,36 @@ const StyledHeroSection = styled.section`
       color: rgba(0, 0, 0, 0.5);
     }
   }
+
+  // media queries
+  @media(min-width: ${({ theme }) => theme.media.mobile}){
+    .custom-container{
+      padding: 0 5rem;
+    }
+  }
+
+  @media(max-width: ${({ theme }) => theme.media.mobile}){
+    padding: 0rem 0rem;
+    
+    .custom-container{
+      padding: 0;
+    }
+
+    .hero-section-data{
+      margin-top: 85px;
+      h1{
+        font-size: 1.5rem;
+      }
+      p{
+        font-size: 1.2rem;
+        line-height: 1.4;
+      }
+      h1,
+      p{
+        text-align: center;
+      }
+    }
+  }
 `;
 
 export default HeroSection;

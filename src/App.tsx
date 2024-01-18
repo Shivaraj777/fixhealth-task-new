@@ -41,6 +41,10 @@ function App() {
       border: "65, 66, 72",
       img_border: "31, 41, 55",
       gradient: "linear-gradient(145deg,#1ca9fe,#1c6ee9);",
+    },
+    media: {
+      mobile: "800px",
+      tab: "998px",
     }
   };
 
