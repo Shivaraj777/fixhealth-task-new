@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import HomePage from './pages/HomePage';
 import { ThemeProvider } from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
+import DoctorsPage from './pages/DoctorsPage';
 
 function App() {
   const darkTheme = {
@@ -50,9 +52,12 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-       <div className="App">
-        <HomePage />
-      </div>
+        <div className="App">
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/doctors' element={<DoctorsPage />} />
+          </Routes>
+        </div>
     </ThemeProvider>
   );
 }

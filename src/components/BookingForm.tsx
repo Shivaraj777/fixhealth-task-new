@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { displayDoctors } from '../redux/actions';
+import { doctorData } from '../data/data';
 
-function BookingForm() {
+function BookingForm(props: any) {
   const [formState, setFormState] = useState<string>('detail-1');
   const [name, setName] = useState<string>('');
   const [mobile, setMobile] = useState<string>('');
@@ -10,8 +14,17 @@ function BookingForm() {
   const [company, setCompany] = useState<string>('');
   const [complaints, setComplaints] = useState<string>('');
   const [checkPhysio, setCheckPhysio] = useState<boolean>(false);
+  const navigate = useNavigate();
+  // console.log(props);
+  console.log(city);
 
-  console.log(name, mobile);
+  const handleFormSubmit = (e: any) => {
+    e.preventDefault();
+    const doctors = doctorData.filter((data: any) => data.city === city);
+    console.log(doctors);
+    props.dispatch(displayDoctors(doctors));
+    navigate('/doctors');
+  }
 
   return (
     <StyledForm id='apply'>
@@ -43,8 +56,9 @@ function BookingForm() {
                                   <input type='checkbox' checked={checkPhysio} onChange={(() => setCheckPhysio(!checkPhysio))} />
                                   <h3>Any previous experience with Physiotherapy</h3>
                                 </div>
-                                <button>Submit</button>
-                              </> : <></>}
+                                <button onClick={handleFormSubmit}>Submit</button>
+                              </> : 
+                                  <></>}
                           </> }
                   </> }
           </form>
@@ -134,4 +148,11 @@ const StyledForm = styled.section`
   }
 `;
 
-export default BookingForm;
+// callback function get state from store
+function mapStateToProps(state: any){
+  return state;
+}
+
+const connectedBookingFormComponent = connect(mapStateToProps)(BookingForm);
+
+export default connectedBookingFormComponent;

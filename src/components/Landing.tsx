@@ -3,7 +3,8 @@ import Header from './Header';
 import HeroSection from './HeroSection';
 import BookingForm from './BookingForm';
 
-function Landing() {
+function Landing(props: any) {
+  
   return (
     <>
       <Header />
