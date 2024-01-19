@@ -23,7 +23,7 @@ function BookingForm(props: any) {
     const doctors = doctorData.filter((data: any) => data.city === city);
     console.log(doctors);
     props.dispatch(displayDoctors(doctors));
-    navigate('/doctors');
+    navigate(`/${city}`);
   }
 
   return (

@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-// import { doctorData } from '../data/data';
+import { doctorData } from '../data/data';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 function DoctorResults(props: any) {
-  const doctorData = props.doctors;
+  const { city } = useParams();
+  // let doctors = props.doctors;
+  const [doctors, setDoctors] = useState(props.doctors)
+
+  // update doctors on hnage in uri
+  useEffect(() => {
+    const updatedDoctors = doctorData.filter((data) => data.city === city);
+    setDoctors(updatedDoctors);
+  }, [city]);
 
   return (
     <StyledResults>
@@ -15,7 +24,7 @@ function DoctorResults(props: any) {
           </div>
 
           <div className='doctors-info'>
-            {doctorData.map((data: any) => (
+            {doctors.map((data: any) => (
               <div key={data.id} className='doctor-card'>
                 <div className='doc-img'>
                   <img src={data.profile} alt='doc-img' height='100px' width='100px' />
@@ -66,7 +75,7 @@ const StyledResults = styled.section`
       .doctor-card{
         height: 20em;
         width: 20em;
-        margin: 1em;
+        margin: 1.3em;
         padding: 15px;
         box-shadow: 0 0 10px rgba(144, 144, 171, 0.7);
       }

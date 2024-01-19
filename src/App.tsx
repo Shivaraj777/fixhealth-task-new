@@ -55,7 +55,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/doctors' element={<DoctorsPage />} />
+            <Route path='/:city' element={<DoctorsPage />} />
           </Routes>
         </div>
     </ThemeProvider>

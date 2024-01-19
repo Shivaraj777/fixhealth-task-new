@@ -6,7 +6,6 @@ import { Link } from 'react-scroll';
 function Navbar() {
   const navItems = [
     { name: 'Home', path: 'home'},
-    { name: 'Testimonials', path: 'testimonials'},
     { name: 'Apply', path: 'apply'}
   ];
 
